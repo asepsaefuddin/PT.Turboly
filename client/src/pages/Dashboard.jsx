@@ -8,15 +8,24 @@ import api from "../services/api"
 export default function Dashboard() {
   const [tasks, setTasks] = useState([])
   const [sort, setSort] = useState("createdAt")
+  const [editingTask, setEditingTask] = useState(null)
 
   async function load() {
-    const res = await api.get(`/tasks?sort=${sort}`)
-    setTasks(res.data.data)
+    try {
+      const res = await api.get(`/tasks?sort=${sort}`)
+      setTasks(res.data.data || res.data)
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   useEffect(() => {
     load()
   }, [sort])
+
+  function cancelEdit() {
+    setEditingTask(null)
+  }
 
   return (
     <div className="min-h-screen bg-base-200">
@@ -40,9 +49,9 @@ export default function Dashboard() {
           </select>
         </div>
 
-        <TaskForm reload={load} />
+        <TaskForm reload={load} editingTask={editingTask} cancelEdit={cancelEdit} />
 
-        <TaskList tasks={tasks} reload={load} />
+        <TaskList tasks={tasks} reload={load} setEditingTask={setEditingTask} />
       </div>
     </div>
   )
