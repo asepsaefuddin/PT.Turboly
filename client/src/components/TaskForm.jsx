@@ -55,7 +55,7 @@ export default function TaskForm({ reload, editingTask, cancelEdit }) {
           name="title"
           value={form.title}
           onChange={change}
-          placeholder="Task title"
+          placeholder="Task title / description"
           required
           className="input input-bordered w-full h-14 rounded-2xl"
         />
