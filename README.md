@@ -183,19 +183,19 @@ DELETE /tasks/:id
 
 ## Login
 
-Insert screenshot here
+![Login](./ss/login.png)
 
 ---
 
 ## Dashboard
 
-Insert screenshot here
+![Dashboard](./ss/dashboard.png)
 
 ---
 
-## Task Completed
+## Register
 
-Insert screenshot here
+![Register](./ss/regist.png)
 
 ---
 
