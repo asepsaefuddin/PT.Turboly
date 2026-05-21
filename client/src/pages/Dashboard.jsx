@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import TaskForm from "../components/TaskForm"
 import TaskList from "../components/TaskList"
+import DueTodayAlert from "../components/DueTodayAlert"
 import api from "../services/api"
 
 export default function Dashboard() {
@@ -48,6 +49,8 @@ export default function Dashboard() {
             <option value="title">Title</option>
           </select>
         </div>
+
+        <DueTodayAlert />
 
         <TaskForm reload={load} editingTask={editingTask} cancelEdit={cancelEdit} />
 
